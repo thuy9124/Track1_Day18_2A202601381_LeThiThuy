@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option C — AI Practice Prompt</title>
+<link rel="stylesheet" href="./shared.css">
+</head>
+<body>
+
+<!-- ============================================================
+     ANNOTATION (không hiện cho tester — chỉ để facilitator đọc)
+
+     OPTION C — AI Practice Prompt
+
+     We expect the tester to:
+     - Hiểu câu hỏi được tạo từ highlight/note đã lưu, không phải kiến thức mới.
+     - Tự bấm "Bắt đầu phiên ôn tập" mà không cần giải thích.
+     - Thử trả lời trước khi mở gợi ý hoặc context gốc.
+     - Chủ động dùng "Xem gợi ý" / "Mở nội dung gốc" khi chưa chắc.
+     - Sau result, tự chọn Đã hiểu / Cần xem lại / Câu hỏi khác.
+
+     Watch for:
+     - Có nhận ra nguồn của câu hỏi không?
+     - Có mở hint ngay mà chưa thử trả lời không?
+     - Có cần mở context gốc để nhớ lại kiến thức không?
+     - Có phân biệt được "Đã hiểu" và "Cần xem lại" không?
+     - Có biết phải làm gì sau result state không?
+     - Có thấy interaction giúp review nhanh hơn hay chỉ thêm effort?
+     - Có bỏ qua practice dù thao tác dễ không?
+
+     Do not explain:
+     - Không nói trước AI đang cố giúp learner học tốt hơn.
+     - Không tiết lộ đáp án đúng trước.
+     - Không hướng tester bấm "Xem gợi ý".
+     - Không giải thích trước ý nghĩa "Đã hiểu" / "Cần xem lại".
+     - Không hỏi tester có "thích" AI Practice Prompt hay không.
+     - Không pitch giải pháp trong lúc test.
+     ============================================================ -->
+
+<div class="shell">
+
+  <div class="topbar">
+    <span class="brand">VLearn · Bài đã lưu</span>
+    <span class="crumbs"><a href="./common-context.html">Common Context</a> / Option C</span>
+  </div>
+
+  <div class="stepper" id="stepper">
+    <span class="step is-active" data-step="0">Common Context</span>
+    <span class="sep">→</span>
+    <span class="step" data-step="1">Critical Interaction</span>
+    <span class="sep">→</span>
+    <span class="step" data-step="2">Result / Quyết định</span>
+  </div>
+
+  <!-- ============ STATE 0 — recap + start ============ -->
+  <section class="card state" id="state-0">
+    <p class="eyebrow" style="margin-bottom:10px;">Option C — AI Practice Prompt</p>
+    <h2 class="section-title">Bài của bạn có vài chỗ đã đánh dấu</h2>
+    <p class="section-sub">
+      STP Marketing · highlight <strong>Segmentation</strong>, <strong>Targeting</strong> · note cá nhân đã lưu.
+    </p>
+
+    <div class="ai-strip">
+      <span class="dot"></span>
+      <div class="ai-strip-body">
+        <span class="ai-strip-label">Sẽ dùng để tạo câu hỏi</span>
+        Câu hỏi ôn tập sẽ được sinh từ đúng phần bạn đã highlight và note — không thêm kiến thức ngoài bài.
+        <div>
+          <span class="src-chip">Highlight · Segmentation</span>
+          <span class="src-chip">Highlight · Targeting</span>
+          <span class="src-chip">Note cá nhân</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-start">Bắt đầu phiên ôn tập</button>
+      <a class="btn btn-ghost" href="./common-context.html" style="text-decoration:none; display:inline-flex; align-items:center;">Xem lại Common Context</a>
+    </div>
+  </section>
+
+  <!-- ============ STATE 1 — question / critical interaction ============ -->
+  <section class="card state" id="state-1" hidden>
+    <p class="eyebrow" style="margin-bottom:10px;">Câu hỏi ôn tập</p>
+
+    <div class="ai-strip">
+      <span class="dot"></span>
+      <div class="ai-strip-body">
+        <span class="ai-strip-label">AI-generated sample output — chỉ để test interaction, không dùng model/API thật</span>
+        Câu hỏi được tạo từ nội dung bạn đã lưu:
+        <div>
+          <span class="src-chip">Highlight · Segmentation (Slide 4)</span>
+          <span class="src-chip">Highlight · Targeting (Slide 5)</span>
+          <span class="src-chip">Note cá nhân của bạn</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="font-size:22px;">Segmentation khác Targeting như thế nào?</h2>
+
+    <label for="answer-box" style="display:block; font-size:13px; color:var(--ink-soft); margin:16px 0 6px;">
+      Câu trả lời của bạn
+    </label>
+    <textarea id="answer-box" rows="3" placeholder="Gõ câu trả lời của bạn ở đây trước khi xem đáp án…"
+      style="width:100%; border:1px solid var(--paper-line); border-radius:10px; padding:12px 14px; font-family:var(--font-body); font-size:14.5px; resize:vertical;"></textarea>
+
+    <!-- hint: hidden until user requests it -->
+    <div id="hint-box" hidden style="margin-top:12px; background:#F5F7F2; border:1px solid #DCE6D2; border-radius:10px; padding:12px 14px;">
+      <p style="margin:0; font-size:10.5px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; color:var(--teal-ink);">Gợi ý</p>
+      <p style="margin:6px 0 0; font-size:14px; color:#2F4A2C;">Một bước diễn ra trước (chia nhóm), một bước diễn ra sau (chọn nhóm để theo đuổi). Bạn nghĩ bước nào là bước nào?</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" id="btn-answer">Trả lời</button>
+      <button class="btn btn-ghost btn-sm" id="btn-unsure">Chưa chắc</button>
+      <button class="btn btn-ghost btn-sm" id="btn-hint">Xem gợi ý</button>
+      <button class="btn btn-ghost btn-sm" id="btn-open-context">Mở nội dung gốc</button>
+      <button class="btn btn-ghost btn-sm" id="btn-skip">Bỏ qua</button>
+    </div>
+  </section>
+
+  <!-- ============ STATE 2 — result / user decision ============ -->
+  <section class="card state" id="state-2" hidden>
+    <p class="eyebrow" style="margin-bottom:10px;">Kết quả</p>
+    <h2 class="section-title" style="font-size:20px;">Đối chiếu câu trả lời</h2>
+
+    <div style="margin-top:14px;">
+      <p style="font-size:10.5px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); margin:0 0 4px;">Câu trả lời của bạn</p>
+      <p id="result-user-answer" style="margin:0; font-size:14.5px; color:var(--ink); background:var(--paper); border:1px solid var(--paper-line); border-radius:10px; padding:12px 14px;">—</p>
+    </div>
+
+    <div style="margin-top:14px;">
+      <p style="font-size:10.5px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.05em; color:#6A50C9; margin:0 0 4px;">Đáp án tham khảo · AI-generated sample output</p>
+      <p style="margin:0; font-size:14.5px; color:#443172; background:#F5F1FF; border:1px solid #DCD2FA; border-radius:10px; padding:12px 14px;">
+        Segmentation là bước <strong>chia</strong> thị trường thành các nhóm nhỏ có đặc điểm chung.
+        Targeting là bước <strong>chọn</strong> một hoặc vài nhóm trong số đó để tập trung đầu tư,
+        dựa trên nguồn lực và mục tiêu của doanh nghiệp.
+      </p>
+    </div>
+
+    <div class="btn-row" style="margin-top:14px;">
+      <button class="btn btn-ghost btn-sm" id="btn-open-context-2">Nguồn tham chiếu · Slide 4–5 · Mở context gốc</button>
+    </div>
+
+    <p style="margin:22px 0 10px; font-size:13.5px; color:var(--ink-soft);">
+      Bạn tự đánh giá — hệ thống không tự kết luận bạn đã hiểu bài hay chưa:
+    </p>
+    <div class="btn-row">
+      <button class="btn btn-teal btn-sm" id="btn-understood">Đã hiểu</button>
+      <button class="btn btn-coral btn-sm" id="btn-review-again">Cần xem lại</button>
+      <button class="btn btn-ghost btn-sm" id="btn-another">Câu hỏi khác</button>
+    </div>
+
+    <p id="decision-echo" style="margin-top:14px; font-size:13px; color:var(--ink-faint);" hidden></p>
+  </section>
+
+  <div class="recovery-bar">
+    <span>Có thể quay lại hoặc reset bất cứ lúc nào.</span>
+    <div class="recovery-actions">
+      <button class="link-quiet" id="btn-back">Quay lại</button>
+      <button class="link-quiet" id="btn-reset">Reset</button>
+    </div>
+  </div>
+
+  <nav class="opt-nav" aria-label="Chọn option để thử">
+    <a href="./option-a-review-hub.html">Option A · Review Hub</a>
+    <a href="./option-b-ai-review-note.html">Option B · AI Review Note</a>
+    <a href="./option-c-ai-practice-prompt.html" class="current">Option C · AI Practice Prompt</a>
+  </nav>
+</div>
+
+<!-- modal: Mở nội dung gốc -->
+<div class="modal-backdrop" id="context-modal">
+  <div class="modal">
+    <p class="modal-slide">Slide 4 · Segmentation</p>
+    <h3>Segmentation</h3>
+    <p>Chia thị trường thành các nhóm nhỏ hơn dựa trên đặc điểm chung: nhân khẩu học, hành vi, nhu cầu hoặc địa lý.</p>
+    <p class="modal-slide">Slide 5 · Targeting</p>
+    <h3>Targeting</h3>
+    <p>Chọn một hoặc vài phân khúc phù hợp nhất với nguồn lực và mục tiêu của doanh nghiệp để tập trung đầu tư.</p>
+    <div class="modal-close-row">
+      <button class="btn btn-primary btn-sm" id="btn-close-modal">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const state0 = document.getElementById('state-0');
+  const state1 = document.getElementById('state-1');
+  const state2 = document.getElementById('state-2');
+  const steps  = document.querySelectorAll('#stepper .step');
+  const answerBox = document.getElementById('answer-box');
+  const hintBox = document.getElementById('hint-box');
+  const modal = document.getElementById('context-modal');
+  const resultUserAnswer = document.getElementById('result-user-answer');
+  const decisionEcho = document.getElementById('decision-echo');
+
+  function setStep(i){
+    steps.forEach((el, idx) => {
+      el.classList.remove('is-active','is-done');
+      if(idx < i) el.classList.add('is-done');
+      if(idx === i) el.classList.add('is-active');
+    });
+  }
+
+  function showState(n){
+    [state0, state1, state2].forEach(s => s.hidden = true);
+    [state0, state1, state2][n].hidden = false;
+    setStep(n);
+  }
+
+  function goToQuestion(prefill){
+    hintBox.hidden = true;
+    answerBox.value = '';
+    decisionEcho.hidden = true;
+    if(prefill) answerBox.placeholder = prefill;
+    showState(1);
+  }
+
+  document.getElementById('btn-start').addEventListener('click', () => goToQuestion());
+
+  document.getElementById('btn-hint').addEventListener('click', () => { hintBox.hidden = false; });
+
+  document.getElementById('btn-open-context').addEventListener('click', () => modal.classList.add('is-open'));
+  document.getElementById('btn-open-context-2').addEventListener('click', () => modal.classList.add('is-open'));
+  document.getElementById('btn-close-modal').addEventListener('click', () => modal.classList.remove('is-open'));
+  modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('is-open'); });
+
+  function goToResult(label){
+    const text = answerBox.value.trim();
+    resultUserAnswer.textContent = text.length ? text : `(${label})`;
+    showState(2);
+  }
+
+  document.getElementById('btn-answer').addEventListener('click', () => goToResult('không nhập câu trả lời'));
+  document.getElementById('btn-unsure').addEventListener('click', () => goToResult('đánh dấu chưa chắc, không trả lời'));
+  document.getElementById('btn-skip').addEventListener('click', () => { showState(0); });
+
+  function decide(label){
+    decisionEcho.hidden = false;
+    decisionEcho.textContent = `Đã ghi nhận: ${label}. Bạn có thể quay lại Common Context hoặc thử câu hỏi khác.`;
+  }
+  document.getElementById('btn-understood').addEventListener('click', () => decide('Đã hiểu'));
+  document.getElementById('btn-review-again').addEventListener('click', () => decide('Cần xem lại'));
+  document.getElementById('btn-another').addEventListener('click', () => goToQuestion());
+
+  document.getElementById('btn-back').addEventListener('click', () => {
+    if(!state2.hidden) showState(1);
+    else if(!state1.hidden) showState(0);
+  });
+  document.getElementById('btn-reset').addEventListener('click', () => showState(0));
+</script>
+
+</body>
+</html>
