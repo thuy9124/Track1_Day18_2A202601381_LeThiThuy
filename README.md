@@ -53,24 +53,24 @@ Cả ba option cùng giải quyết task tìm, hiểu lại và review nội dun
 
 ### Observation từ phiên tôi facilitate
 
-- `[Tester có tự tìm được note hay không?]`
-- `[Tester có cần mở lại context gốc không?]`
-- `[Tester có hiểu các filter và nút hành động không?]`
-- `[Tester gặp điểm dừng hoặc nhầm lẫn nào?]`
+- Tester xem bản AI tổng hợp (phần Key ideas, Questions, Don't understand) để nắm nhanh tóm tắt nội dung thay vì phải tự tìm từng note rời rạc.
+- Tester có mở lại context gốc khi gặp nội dung chưa chắc chắn hoặc không nhớ rõ mục đích highlight ban đầu, thay vì trực tiếp chấp nhận bản AI.
+- Tester hiểu các chức năng và đã thao tác đối chiếu với highlight gốc để sửa lại wording của AI, cũng như bỏ qua các mục không cần thiết.
+- Tester có sự do dự và dừng lại ở một ý do AI viết vì không nhớ mình từng highlight nội dung đó với mục đích gì, chưa muốn xác nhận trước khi kiểm tra nguồn.
 
 ### Ba-feedback synthesis
 
-1. `[Feedback 1 - observation cụ thể từ người test]`
-2. `[Feedback 2 - observation cụ thể từ người test]`
-3. `[Feedback 3 - observation cụ thể từ người test]`
+1. Bản review có cấu trúc giúp tester tiết kiệm thời gian tổng hợp và dễ nắm bắt nội dung hơn so với các highlight rời rạc.
+2. Việc truy xuất source và khả năng kiểm chứng rất quan trọng: Tester không xác nhận toàn bộ bản review mà luôn muốn đối chiếu để đảm bảo AI diễn giải đúng ý định.
+3. Hành động chỉnh sửa và bỏ qua nội dung cho thấy tester vẫn muốn giữ quyền quyết định và kiểm soát đối với note cá nhân của mình, coi AI là công cụ hỗ trợ gợi ý.
 
 ### Next Change
 
-`[Thay đổi tiếp theo dự kiến: ví dụ làm rõ tag, rút gọn danh sách note, hoặc đưa nút Mở context gốc ra gần hơn.]`
+Kết hợp cơ chế bản review của Option B với khả năng xem context rõ ràng của Option A: Thêm nút `Xem nguồn` cho mỗi ý AI tạo (khi mở source sẽ làm nổi bật highlight liên quan). Cho phép user linh hoạt sửa, xóa, chuyển mục. Bổ sung nhãn `AI đề xuất` cho các nội dung AI tự tạo và chỉ chuyển thành note chính thức khi tester chủ động `Xác nhận`, không tự động thay thế note gốc của người dùng.
 
 ### Still Unproven
 
-`[Chưa chứng minh được người học có thực sự review nhiều hơn khi note dễ tìm hơn hay không; vẫn có thể bỏ qua vì thiếu thời gian, quên hoặc ưu tiên việc khác.]`
+Chưa chứng minh được bản review AI thực sự giúp giảm thời gian ôn tập so với cách review hiện tại (vì user mất thêm thời gian đối chiếu source và chỉnh sửa). Cũng chưa chắc chắn liệu người dùng có thường xuyên sử dụng cách review AI này trong tương lai không hay chỉ thấy cấu trúc đẹp mắt ở lần đầu.
 
 ## 6. AI Support Log
 
